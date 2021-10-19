@@ -1,0 +1,147 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 21 de set. de 2021, 22:03:57
+    Author     : birse
+*/
+
+/* geral */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Helvetica;
+  color: #323232;
+  border: none;
+}
+
+
+.logo {
+    width: 80px;
+    height: 100%;
+}
+
+/* container cadastro */
+#cadastro-container {
+  background-color: #FFF;
+  margin-left: auto;
+  margin-right: auto;
+  width: 800px;
+  padding: 20px 30px;
+  margin-top: 10vh;
+  border-radius: 10px;
+  text-align: center;
+}
+.cadastro-usuario {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.cadastro-usuario li {
+    padding: 5px;   
+}
+
+.radio-button {
+    padding-right: 30px;
+}
+
+body {
+  background-color: gainsboro;
+  background-size: cover;
+  background-position-y: -200px;
+}
+
+textarea:focus, input:focus{
+  outline: none;
+}
+
+a {
+  font-size: .8rem;
+}
+
+a:hover {
+  color: #00a2a7;
+}
+
+/* container login */
+#login-container {
+  background-color: #FFF;
+  margin-left: auto;
+  margin-right: auto;
+  width: 400px;
+  padding: 20px 30px;
+  margin-top: 10vh;
+  border-radius: 10px;
+  text-align: center;
+  }
+
+/* formulário */
+form {
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
+
+label, input {
+  display: block;
+  width: 100%;
+  text-align: left;
+  outline: none;
+}
+
+label {
+  font-weight: bold;
+  font-size: .8rem;
+}
+
+input {
+  border-bottom: 2px solid #323232;
+  padding: 10px;
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+input:focus {
+  border-bottom: 2px solid #00a2a7;
+}
+
+#forgot-pass {
+  display: block;
+  text-align: right;
+}
+
+input[type="submit"] {
+  text-align: center;
+  text-transform: uppercase;
+  border: none;
+  height: 40px;
+  border-radius: 20px;
+  margin-top: 30px;
+  cursor: pointer;
+  color: #FFF;
+  background-color: #00a2a7;
+  font-weight: bold;
+}
+
+input[type="submit"]:hover {
+  background-color: #3c3078;
+  transition: .5s;
+}
+
+
+/* registrar */
+#cadastro-forgot-container p {
+  margin-bottom: 10px;
+  background-color: #FFF;
+  margin-left: auto;
+  margin-right: auto;
+  width: 400px;
+  padding: 20px 30px;
+  border-radius: 10px;
+  text-align: center;
+  outline: none;
+}
