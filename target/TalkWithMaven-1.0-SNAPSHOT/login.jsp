@@ -32,7 +32,7 @@
                         <input id="senha" name="senha" required="required" type="password" placeholder="Digite sua senha"/>
                         <input type="submit" value="Acessar" />
                     <div>
-                    <hr>
+                        <hr>
                     </div>
                     <p>Esqueci a senha
                         <a href="forgot.jsp" >Usuário / Senha?</a>

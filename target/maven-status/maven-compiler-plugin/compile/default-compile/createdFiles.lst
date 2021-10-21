@@ -1,2 +1,4 @@
-com\DbListener.class
 com\User.class
+com\DbListener.class
+com\Servico.class
+com\Produto.class

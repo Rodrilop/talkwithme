@@ -21,6 +21,6 @@
         <%@include file="META-INF/jspf/header.jspf"%>
         <h1 class="title" align="center">Bem Vindo ao TALK WITH ME</h1>
         <h3 class="Subtitle" align="center">Aqui você é sabe quando seus produtos e serviços estão vindo até você</h3>
-        
+
     </body>
 </html>

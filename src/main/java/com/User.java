@@ -23,6 +23,7 @@ public class User {
     private String telefone;
     private String cep;
     private String rua;
+    private String numero;
     private String complemento;
     private String bairro;
     private String cidade;
@@ -65,10 +66,10 @@ public class User {
         return user;
     }
 
-    public static void insertUser(String login, String name, String role, String senha, String email, String telefone, String cep, String rua, String complemento, String bairro, String cidade, String estado, String tipo_cliente) throws Exception {
+    public static void insertUser(String login, String name, String role, String senha, String email, String telefone, String cep, String rua, String numero, String complemento, String bairro, String cidade, String estado, String tipo_cliente) throws Exception {
         Connection con = DbListener.getConnection();
-        String sql = "INSERT INTO users(login, name, role, senha, email, telefone, cep, rua, complemento, bairro, cidade, estado, tipo_cliente) "
-                + "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO users(login, name, role, senha, email, telefone, cep, rua, numero, complemento, bairro, cidade, estado, tipo_cliente) "
+                + "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         PreparedStatement stmt = con.prepareStatement(sql);
         stmt.setString(1, login);
         stmt.setString(2, name);
@@ -78,11 +79,12 @@ public class User {
         stmt.setString(6, telefone);
         stmt.setString(7, cep);
         stmt.setString(8, rua);
-        stmt.setString(9, complemento);
-        stmt.setString(10, bairro);
-        stmt.setString(11, cidade);
-        stmt.setString(12, estado);
-        stmt.setString(13, tipo_cliente);
+        stmt.setString(9, numero);
+        stmt.setString(10, complemento);
+        stmt.setString(11, bairro);
+        stmt.setString(12, cidade);
+        stmt.setString(13, estado);
+        stmt.setString(14, tipo_cliente);
 
         stmt.execute();
         stmt.close();
@@ -178,6 +180,14 @@ public class User {
 
     public void setRua(String rua) {
         this.rua = rua;
+    }
+        
+    public String getNumero() {
+        return numero;
+    }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
     }
 
     public String getComplemento() {
