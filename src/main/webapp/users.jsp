@@ -53,10 +53,29 @@
         <div>Página restrita a usuários logados</div>
         <%} else if (!session.getAttribute("user.role").equals("ADM")) {%>
         <div>Página restrita a administradores</div>
-        <%} else {%>
 
+       <%} else if (request.getParameter("preparedelete") != null) {%>
+
+        <fieldset>
+            <legend>Remover Produto</legend>
+            <form method="post">
+                <div id="login-container">
+                Remover o registro <%= request.getParameter("login")%>?
+                <input type="hidden" name="login" value="<%= request.getParameter("login")%>"/>
+                <div class="container col-4 btn-group">
+                <input type="submit" name="delete" value="Remover"/>
+                &nbsp;&nbsp;&nbsp;
+                <input type="submit" name="cancel" value="Cancelar"/>
+                </div>
+                </div>
+            </form>
+                 <%} else {%>      
+        </fieldset>
         <hr/>
-        <table align= "center" border="1">
+        <div class="container">
+        <div class="row">
+        <div class="table-responsive">
+            <table class="table table-striped table-hover table-sm">
             <tr>
                 <th>Login</th>
                 <th>Name</th>
@@ -93,12 +112,15 @@
                 <td>
                     <form method="post">
                         <input type="hidden" name="login" value="<%= user.getLogin()%>"/>
-                        <input type="submit" name="delete" value="Excluir"/>
+                        <input type="submit" name="preparedelete" value="Excluir"/>
                     </form>
                 </td>
             </tr>
             <%}%>
         </table>
+        </div>
+        </div>
+        </div>
         <%}%>
     </body>
 </html>

@@ -70,12 +70,15 @@
         <fieldset>
             <legend>Cadastrar Produto</legend>
             <form method="post">
+                <div class="container col-4">
                 Nome Produto: <input type="text" name="nm_produto"/>
                 Peso: <input type="text" name="peso"/>
                 Volume: <input type="text" name="volume"/>
-                <hr/>
+                <div class="container col-4">
                 <input type="submit" name="insert" value="Incluir"/>
                 <input type="submit" name="cancel" value="Cancelar"/>
+                </div>
+                </div>
             </form>
         </fieldset>
 
@@ -89,6 +92,7 @@
             <div>O registro não foi encontrado.</div>
             <% } else {%>
             <form method="post">
+                <div class="container col-4">
                 Nome:
                 <br/><input type="text" name="nm_produto" readonly value="<%= p.getNm_produto()%>"/>
                 <br/>Peso:
@@ -96,9 +100,11 @@
                 <br/>Volume:
                 <br/><input type="text" name="volume" value="<%= p.getVolume()%>"/>
                 <input type="hidden" name="id_produto" value="<%= request.getParameter("id_produto")%>"/>
-                <hr/>
+                <div class="container col-4">
                 <input type="submit" name="update" value="Alterar"/>
                 <input type="submit" name="cancel" value="Cancelar"/>
+                </div>
+                </div>
             </form>
             <% } %>
         </fieldset>
@@ -108,30 +114,39 @@
         <fieldset>
             <legend>Remover Produto</legend>
             <form method="post">
+                <div class="container col-4">
                 Remover o registro <%= request.getParameter("id_produto")%>?
                 <input type="hidden" name="id_produto" value="<%= request.getParameter("id_produto")%>"/>
-                <hr/>
+                <div class="container col-4 btn-group">
                 <input type="submit" name="delete" value="Remover"/>
+                &nbsp;&nbsp;&nbsp;
                 <input type="submit" name="cancel" value="Cancelar"/>
+                </div>
+                </div>
             </form>
         </fieldset>
 
         <%} else {%>
 
         <form method="post">
+            <div class="container col-2">
             <input type="submit" name="prepareInsert" value="Incluir"/>
+            </div>
         </form>
 
         <%}%>
 
         <hr/>
-        <table align="center" border="1">
+        <div class="container">
+        <div class="row">
+        <div class="table-responsive">
+            <table class="table table-striped table-hover table-sm">
             <tr>
-                <th>ID</th>
-                <th>Nome Produto</th>
-                <th>Peso</th>
-                <th>Volume</th>
-                <th>Comandos</th>
+                <th scope="col">ID</th>
+                <th scope="col">Nome Produto</th>
+                <th scope="col">Peso</th>
+                <th scope="col">Volume</th>
+                <th scope="col">Comandos</th>
             </tr>
             <%for (Produto p : list) {%>
             <tr>
@@ -142,13 +157,19 @@
                 <td>
                     <form method="post">
                         <input type="hidden" name="id_produto" value="<%= p.getId_produto()%>"/>
+                        <div class="container col-5 btn-group">
                         <input type="submit" name="prepareUpdate" value="Alterar"/>
+                        &nbsp;&nbsp;&nbsp;
                         <input type="submit" name="preparedelete" value="Excluir"/>
+                        </div>
                     </form>
                 </td>
             </tr>
             <%}%>
         </table>
+        </div>
+        </div>
+        </div>
         <%}%>
     </body>
 </html>

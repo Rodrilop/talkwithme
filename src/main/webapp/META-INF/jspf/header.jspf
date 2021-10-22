@@ -14,7 +14,7 @@
                 session.setAttribute("user.login", user.getLogin());
                 session.setAttribute("user.name", user.getName());
                 session.setAttribute("user.role", user.getRole());
-                response.sendRedirect(request.getRequestURI());
+                response.sendRedirect("index.jsp");
             }
         } catch (Exception ex) {
             headerError = ex.getMessage();
@@ -23,50 +23,70 @@
         session.removeAttribute("user.login");
         session.removeAttribute("user.name");
         session.removeAttribute("user.role");
-        response.sendRedirect(request.getRequestURI());
+        response.sendRedirect("index.jsp");
     }
 %>
-
-<%if (DbListener.exception != null) {%>
-<div style="color: red"><%= DbListener.exception.getMessage()%></div>
-<%}%>
 <%if (headerError != null) {%>
 <div style="color: red"><%= headerError%></div>
 <hr/>
 <%}%>
 <%if (session.getAttribute("user.login") == null) {%>
-<form class= "login-container" method="post">
-    Login: <input type="text" name="user.login"/>
-    Senha: <input type="password" name="user.password"/>
-    <input type="submit" name="session.login" value="Entrar"/>
-    <hr>
-    <p>Esqueci a senha
-    <a href="forgot.jsp">Usuário / Senha?</a>
-    <p class="link">
-    Ainda não tem conta?
-    <a href="cadastro.jsp">Cadastre-se</a>
-</form>
-<%} else {%>
 <form method="post">
-<header class="nav-menu">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#"><img src="src/img/twm.png" alt="logo" class="logo"/>TWM</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    Bem vindo, <b>
-        <a href="users.jsp"><%= session.getAttribute("user.name")%></a>
-    </b>
-    <input class="nav-link" type="submit" name="session.logout" value="Sair"/>
-    | <a class="nav-link" href="index.jsp">INÍCIO</a>
-    <%if (session.getAttribute("user.role").equals("ADM")) {%>
-    | <a class="nav-link" href="users.jsp">USUÁRIOS</a>
-    <%}%>
-    | <a class="nav-link" href="servicos.jsp">SERVIÇOS</a>
-    | <a class="nav-link" href="produtos.jsp">PRODUTOS</a>
-    </div>
-</form>
-<%}%>
-<hr/>
-</header>
+    <header class="nav-menu">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#"><img src="src/img/twm.png" alt="logo" class="logo"/>TWM</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.jsp">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Sobre Nós</a>
+                    </li>   
+                </ul>
+            </div>
+
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active"><a class="nav-link" href="cadastro.jsp">Cadastrar</a></li>
+                <li class="nav-item active"><a class="nav-link" href="login.jsp">Login</a></li>
+            </ul>
+        </nav>
+        <%} else {%>
+        <form method="post">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#"><img src="src/img/twm.png" alt="logo" class="logo"/>TWM</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.jsp">Home</a>
+                    </li>
+                    <%if (session.getAttribute("user.role").equals("ADM")) {%>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="users.jsp">Usuários</a>
+                    </li>
+                    <%}%>
+                    <li class="nav-item">
+                        <a class="nav-link" href="servicos.jsp">Serviços</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="produtos.jsp">Produtos</a>
+                    </li>  
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.jsp">Sobre Nós</a>
+                    </li>   
+                </ul>
+            </div>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active"><a class="nav-link" href="users.jsp">Bem vindo, <b><%= session.getAttribute("user.name")%></b></a>
+                <input class="container col-5" type="submit" name="session.logout" value="Sair"/></li>
+            </ul>
+            <%}%>
+        </nav>
+    </header>

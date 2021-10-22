@@ -19,8 +19,16 @@
     </head>
     <body>
         <%@include file="META-INF/jspf/header.jspf"%>
+        </br>
+        </br>
+        </br>
         <h1 class="title" align="center">Bem Vindo ao TALK WITH ME</h1>
+        </br>
+        </br>
         <h3 class="Subtitle" align="center">Aqui você é sabe quando seus produtos e serviços estão vindo até você</h3>
+        </br>
+        <h5 class="Subtitle" align="center">Criar uma via de comunicação entre entregadores e prestadores de serviços </h5>
+        <h5 class="Subtitle" align="center"> e seus clientes, possibilitando a notificação de que o produto ou serviço está a caminho, de maneira simples e ágil.</h5>
 
     </body>
 </html>

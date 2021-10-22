@@ -66,20 +66,22 @@
         <%} else {%>
 
         <%if (request.getParameter("prepareInsert") != null) {%>
-
         <fieldset>
             <legend>Cadastrar Serviço</legend>
             <form method="post">
+               <div class="container col-4">
                 Nome Serviço: <input type="text" name="nm_servico"/>
                 Nome do Prestador <input type="text" name="nm_prestador"/>
                 Nome do Cliente <input type="text" name="nm_cliente"/>
                 Data do Serviço: <input type="date" name="dt_servico"/>
-                <hr/>
+                <div class="container col-4">
                 <input type="submit" name="insert" value="Incluir"/>
                 <input type="submit" name="cancel" value="Cancelar"/>
+                </div>
+                </div>
             </form>
         </fieldset>
-
+            
         <%} else if (request.getParameter("prepareUpdate") != null) {%>       
 
         <fieldset>
@@ -90,14 +92,17 @@
             <div>O registro não foi encontrado.</div>
             <% } else {%>
             <form method="post">
+                <div class="container col-4">
                 Nome:
                 <br/><input type="text" name="nm_servico" readonly value="<%= s.getNm_servico()%>"/>
                 <br/>Data do Serviço:
                 <br/><input type="text" name="dt_servico" value="<%= s.getDt_servico()%>"/>
                 <input type="hidden" name="id_servico" value="<%= request.getParameter("id_servico")%>"/>
-                <hr/>
+                <div class="container col-4">
                 <input type="submit" name="update" value="Alterar"/>
                 <input type="submit" name="cancel" value="Cancelar"/>
+                </div>
+                </div>
             </form>
             <% } %>
         </fieldset>
@@ -107,31 +112,39 @@
         <fieldset>
             <legend>Remover Serviço</legend>
             <form method="post">
+                <div class="container col-2">
                 Remover o registro <%= request.getParameter("id_servico")%>?
                 <input type="hidden" name="id_servico" value="<%= request.getParameter("id_servico")%>"/>
-                <hr/>
+                <div class="container col-4">
                 <input type="submit" name="delete" value="Remover"/>
                 <input type="submit" name="cancel" value="Cancelar"/>
+                </div>
+                </div>
             </form>
         </fieldset>
 
         <%} else {%>
 
         <form method="post">
+                  <div class="container col-2">
             <input type="submit" name="prepareInsert" value="Incluir"/>
+                  </div>
         </form>
 
         <%}%>
 
         <hr/>
-        <table align="center" border="1">
+        <div class="container">
+        <div class="row">
+        <div class="table-responsive">
+            <table class="table table-striped table-hover table-sm">
             <tr>
-                <th>ID</th>
-                <th>Nome Serviço</th>
-                <th>Nome do Prestador</th>
-                <th>Nome do Cliente</th>
-                <th>Data do Serviço</th>
-                <th>Comandos</th>
+                <th scope="col">ID</th>
+                <th scope="col">Nome Serviço</th>
+                <th scope="col">Nome do Prestador</th>
+                <th scope="col">Nome do Cliente</th>
+                <th scope="col">Data do Serviço</th>
+                <th scope="col">Comandos</th>
             </tr>
             <%for (Servico s : list) {%>
             <tr>
@@ -143,13 +156,19 @@
                 <td>
                     <form method="post">
                         <input type="hidden" name="id_servico" value="<%= s.getId_servico()%>"/>
+                        <div class="container col-8 btn-group">
                         <input type="submit" name="prepareUpdate" value="Alterar"/>
+                        &nbsp;&nbsp;&nbsp;
                         <input type="submit" name="preparedelete" value="Excluir"/>
+                        </div>
                     </form>
                 </td>
             </tr>
             <%}%>
         </table>
+        </div>
+        </div>
+        </div>
         <%}%>
     </body>
 </html>

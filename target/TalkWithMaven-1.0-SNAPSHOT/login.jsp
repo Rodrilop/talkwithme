@@ -24,13 +24,13 @@
                 <form method="post" action=""> 
                     <h1>Login</h1> 
                     <p> 
-                        <label for="email_login">Seu e-mail</label>
-                        <input id="email_login" name="email_login" required="required" placeholder="Digite seu e-mail" autocomplete="off" /> 
+                        <label for="email_login">Login</label>
+                        <input type="text" name="user.login" required="required" placeholder="Digite seu login" autocomplete="off" /> 
                     </p>
                     <p> 
                         <label for="senha">Sua senha</label>
-                        <input id="senha" name="senha" required="required" type="password" placeholder="Digite sua senha"/>
-                        <input type="submit" value="Acessar" />
+                        <input type="password" name="user.password" placeholder="Digite sua senha"/>
+                    <input type="submit" name="session.login" value="Acessar"/>
                     <div>
                         <hr>
                     </div>
