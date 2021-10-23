@@ -158,7 +158,7 @@
                                                                        onblur="pesquisacep(this.value);" name="cep" required="required"/>
                         </li>
                         <li>
-                            <label>Rua: &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" class="form-control col-8" placeholder="Logradouro" id="rua" name="rua" readonly></label> 
+                            <label>Rua: &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" class="form-control col-8" placeholder="Rua" id="rua" name="rua" readonly></label> 
                             <label>Numero: <input type="text" class="form-control col-4" placeholder="Número" id="numero" name="numero" required="required"></label>
                             <label>Complemento: <input type="text" class="form-control col-4" placeholder="Apto/Bloco" id="complemento" name="complemento"></label>
                         </li>
@@ -173,7 +173,7 @@
                         </li>
                         <li>
                             <label for="cliente" class="radio-button"><input type="radio"  value="cliente" id="cliente" name="tipo_cliente"> Cliente</label>
-                            <label for="terceiro" class="radio-button"><input type="radio" value="terceiro" id="terceiro" name="tipo_cliente"> Terceiro</label>
+                            <label for="prestador" class="radio-button"><input type="radio" value="prestador" id="prestado" name="tipo_cliente"> Prestador</label>
                         </li>
                         <li>
                             <input type="submit" value="Cadastrar" name="insert"/>

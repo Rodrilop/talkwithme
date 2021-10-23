@@ -39,7 +39,18 @@ public class User {
             String login = rs.getString("login");
             String name = rs.getString("name");
             String role = rs.getString("role");
-            list.add(new User(login, name, role));
+            String email = rs.getString("email");
+            String telefone = rs.getString("telefone");
+            String cep = rs.getString("cep");
+            String rua = rs.getString("rua");
+            String numero = rs.getString("numero");
+            String complemento = rs.getString("complemento");
+            String bairro = rs.getString("bairro");
+            String cidade = rs.getString("cidade");
+            String estado = rs.getString("estado");
+            String tipo_cliente = rs.getString("tipo_cliente");
+            
+            list.add(new User(login, name, role, email, telefone, cep, rua, numero, complemento, bairro, cidade, estado, tipo_cliente));
         }
         rs.close();
         stmt.close();
@@ -118,7 +129,23 @@ public class User {
         this.role = role;
     }
 
-    public String getRole() {
+    public User(String login, String name, String role, String email, String telefone, String cep, String rua, String numero, String complemento, String bairro, String cidade, String estado, String tipo_cliente) {
+        this.login = login;
+        this.name = name;
+        this.role = role;
+        this.email = email;
+        this.telefone = telefone;
+        this.cep = cep;
+        this.rua = rua;
+        this.numero = numero;
+        this.complemento = complemento;
+        this.bairro = bairro;
+        this.cidade = cidade;
+        this.estado = estado;
+        this.tipo_cliente = tipo_cliente;
+    }
+
+public String getRole() {
         return role;
     }
 

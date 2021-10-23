@@ -75,17 +75,16 @@
         <div class="container">
         <div class="row">
         <div class="table-responsive">
-            <table class="table table-striped table-hover table-sm">
+            <table class="table table-striped table-hover table-sm " >
             <tr>
                 <th>Login</th>
                 <th>Name</th>
                 <th>Role</th>
-                <th>Senha</th>
                 <th>Email</th>
                 <th>Telefone</th>
                 <th>CEP</th>
                 <th>Rua</th>
-                <th>Numero</th>
+                <th>Número</th>
                 <th>Complemento</th>
                 <th>Bairro</th>
                 <th>Cidade</th>
@@ -98,7 +97,6 @@
                 <td><%= user.getLogin()%></td>
                 <td><%= user.getName()%></td>
                 <td><%= user.getRole()%></td>
-                <td><%= user.getSenha()%></td>
                 <td><%= user.getEmail()%></td>
                 <td><%= user.getTelefone()%></td>
                 <td><%= user.getCep()%></td>
