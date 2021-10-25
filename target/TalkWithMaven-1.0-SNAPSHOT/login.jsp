@@ -24,7 +24,7 @@
                 <form method="post" action=""> 
                     <h1>Login</h1> 
                     <p> 
-                        <label for="email_login">Login</label>
+                        <label for="login">Login</label>
                         <input type="text" name="user.login" required="required" placeholder="Digite seu login" autocomplete="off" /> 
                     </p>
                     <p> 
@@ -36,7 +36,7 @@
                     </div>
                     <p>Esqueci a senha
                         <a href="forgot.jsp" >Usuário / Senha?</a>
-                    <p class="link">
+                    <p>
                         Ainda não tem conta?
                         <a href="cadastro.jsp">Cadastre-se</a>
                 </form>

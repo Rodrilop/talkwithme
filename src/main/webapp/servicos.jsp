@@ -44,15 +44,7 @@
         <!-- JavaScript Bundle with Popper -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="src/style.css"/>
-        <style>
-            ul{
-                list-style-type: none;
-                line-height: 280%
-            }
-            input{
-                line-height: 100%
-            }
-        </style>
+
     </head>
     <body>
         <%@include file="META-INF/jspf/header.jspf"%>

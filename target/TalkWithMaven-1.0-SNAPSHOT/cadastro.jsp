@@ -123,62 +123,62 @@
             <div id="cadastro-container">
                 <h1>Cadastro de Usuário</h1>
                 <form onsubmit="return validarFormulario()" method="post">
-                    <ul class="cadastro-usuario">
-                        <li>
+                    <div class="cadastro-usuario">
+                        <p>
                             <label>
                                 Login: &nbsp;&nbsp;&nbsp;<input type="text" class="form-control col-8" placeholder="Login" id="nome" name="login" required="required">
                             </label>
-                        </li>
-                        <li>
+                        </p>
+                        <p>
                             <label>
                                 Senha: &nbsp;&nbsp;&nbsp;<input type="password" class="form-control col-8" placeholder="Senha" id="senha" name="senha" required="required">
                             </label>
-                        </li>
-                        <li>
+                        </p>
+                        <p>
                             <label>
                                 Nome: &nbsp;&nbsp;&nbsp;<input type="text" class="form-control col-8" placeholder="Nome" id="nome" name="name" required="required">
                             </label>
-                        </li>
-                        <li>
+                        </p>
+                        <p>
                             <label>
                                 Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" class="form-control col-8" placeholder="Email" id="email" name="email" required="required">
                             </label>
-                        </li>
-                        <li>
+                        </p>
+                        <p>
                             <label>
                                 Telefone: <input type="text" class="form-control col-8" placeholder="Telefone" id="telefone" name="telefone" required="required">
                             </label>
-                        </li>
+                        </p>
 
-                        <li>
+                        <p>
                             <b>Endereço: </b>
-                        </li>
-                        <li>
+                        </p>
+                        <p>
                             <label>CEP: &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" class="form-control col-8" placeholder="CEP" id="cep" value="" size="10" maxlength="9"
                                                                        onblur="pesquisacep(this.value);" name="cep" required="required"/>
-                        </li>
-                        <li>
+                        </p>
+                        <p>
                             <label>Rua: &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" class="form-control col-8" placeholder="Rua" id="rua" name="rua" readonly></label> 
                             <label>Numero: <input type="text" class="form-control col-4" placeholder="Número" id="numero" name="numero" required="required"></label>
                             <label>Complemento: <input type="text" class="form-control col-4" placeholder="Apto/Bloco" id="complemento" name="complemento"></label>
-                        </li>
-                        <li>
+                        </p>
+                        <p>
                             <label>Bairro: &nbsp;<input type="text" class="form-control " placeholder="Bairro" id="bairro"  name="bairro" readonly required="required"></label>
-                        </li>
-                        <li>
+                        </p>
+                        <p>
                             <label>Cidade: <input class="form-control " type="text" name="Cidade" id="cidade" placeholder="Cidade" readonly required="required"></label>
-                        </li>
-                        <li>
+                        </p>
+                        <p>
                             <label>Estado: <input  class="form-control " type="text" name="UF" id="uf" placeholder="Estado" readonly required="required"></label>
-                        </li>
-                        <li>
+                        </p>
+                        <p>
                             <label for="cliente" class="radio-button"><input type="radio"  value="cliente" id="cliente" name="tipo_cliente"> Cliente</label>
                             <label for="prestador" class="radio-button"><input type="radio" value="prestador" id="prestado" name="tipo_cliente"> Prestador</label>
-                        </li>
-                        <li>
+                        </p>
+                        <p >
                             <input type="submit" value="Cadastrar" name="insert"/>
-                        </li>
-                    </ul>
+                        </p>
+                    </div>
                 </form>
             </div>
         </header>
