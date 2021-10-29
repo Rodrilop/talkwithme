@@ -29,13 +29,14 @@
                     </p>
                     <p> 
                         <label for="senha">Sua senha</label>
-                        <input type="password" name="user.password" placeholder="Digite sua senha"/>
+                        <input type="password" name="user.senha" placeholder="Digite sua senha"/>
                     <input type="submit" name="session.login" value="Acessar"/>
+                    </p>
                     <div>
                         <hr>
                     </div>
                     <p>Esqueci a senha
-                        <a href="forgot.jsp" >Usuário / Senha?</a>
+                        <a href="esqueci-senha.jsp" >Usuário / Senha?</a>
                     <p>
                         Ainda não tem conta?
                         <a href="cadastro.jsp">Cadastre-se</a>

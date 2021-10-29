@@ -5,9 +5,9 @@
     String headerError = null;
     if (request.getParameter("session.login") != null) {
         String login = request.getParameter("user.login");
-        String password = request.getParameter("user.password");
+        String senha = request.getParameter("user.senha");
         try {
-            User user = User.getUser(login, password);
+            User user = User.getUser(login, senha);
             if (user == null) {
                 headerError = "Usuário / senha não encontrado";
             } else {
@@ -44,9 +44,6 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="index.jsp">Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Sobre Nós</a>
-                    </li>   
                 </ul>
             </div>
 
@@ -78,13 +75,12 @@
                     <li class="nav-item">
                         <a class="nav-link" href="produtos.jsp">Produtos</a>
                     </li>  
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.jsp">Sobre Nós</a>
-                    </li>   
                 </ul>
             </div>
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active"><a class="nav-link" href="users.jsp">Bem vindo, <b><%= session.getAttribute("user.name")%></b></a>
+                <li><a class="nav-link" href="users.jsp">Bem vindo, <b><%= session.getAttribute("user.name")%></b>
+                <li class="nav-item">
+                    <a class="nav-link" href="alterar-senha.jsp" >Alterar Senha</a></li>   
                 <input class="container col-5" type="submit" name="session.logout" value="Sair"/></li>
             </ul>
             <%}%>

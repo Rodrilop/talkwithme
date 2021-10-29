@@ -132,7 +132,8 @@
         <div class="container">
         <div class="row">
         <div class="table-responsive">
-            <table class="table table-striped table-hover table-sm">
+            <table id="produtos" class="table table-striped table-hover table-sm">
+                <thead>
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Nome Produto</th>
@@ -140,6 +141,8 @@
                 <th scope="col">Volume</th>
                 <th scope="col">Comandos</th>
             </tr>
+            </thead>
+            <tbody>
             <%for (Produto p : list) {%>
             <tr>
                 <td><%= p.getId_produto()%></td>
@@ -158,10 +161,33 @@
                 </td>
             </tr>
             <%}%>
+            </tbody>
         </table>
         </div>
         </div>
         </div>
         <%}%>
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css">
+        
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
+        
+
+        <script>
+            $(document).ready(function () {
+                $('#produtos').DataTable({
+                    "language": {
+                        "lengthMenu": "Mostrando _MENU_ registros por página",
+                        "zeroRecords": "Nada encontrado",
+                        "info": "Mostrando página _PAGE_ de _PAGES_",
+                        "infoEmpty": "Nenhum registro encontrado",
+                        "infoFiltered": "(filtrando de  _MAX_ registros no total)",
+                        "search":"Procurar"
+                    }
+                });
+            });
+        </script>
+        
     </body>
 </html>

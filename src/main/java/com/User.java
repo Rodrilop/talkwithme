@@ -18,7 +18,6 @@ public class User {
     private String login;
     private String name;
     private String role;
-    private String senha;
     private String email;
     private String telefone;
     private String cep;
@@ -58,13 +57,13 @@ public class User {
         return list;
     }
 
-    public static User getUser(String login, String password) throws Exception {
+    public static User getUser(String login, String senha) throws Exception {
         User user = null;
         Connection con = DbListener.getConnection();
-        String sql = "SELECT * from users WHERE login=?";
+        String sql = "SELECT * from users WHERE login=? AND senha=?";
         PreparedStatement stmt = con.prepareStatement(sql);
         stmt.setString(1, login);
-        //stmt.setLong(2, password.hashCode());
+        stmt.setLong(2, senha.hashCode());
         ResultSet rs = stmt.executeQuery();
         if (rs.next()) {
             String name = rs.getString("name");
@@ -76,6 +75,17 @@ public class User {
         con.close();
         return user;
     }
+    
+     public static User esqueciSenha(String email) throws Exception {
+        User user = null;
+        Connection con = DbListener.getConnection();
+        String sql = "SELECT * from users WHERE login=? AND email=?";
+        PreparedStatement stmt = con.prepareStatement(sql);
+        stmt.setString(1, email);
+        stmt.close();
+        con.close();
+        return user;
+    }   
 
     public static void insertUser(String login, String name, String role, String senha, String email, String telefone, String cep, String rua, String numero, String complemento, String bairro, String cidade, String estado, String tipo_cliente) throws Exception {
         Connection con = DbListener.getConnection();
@@ -85,7 +95,7 @@ public class User {
         stmt.setString(1, login);
         stmt.setString(2, name);
         stmt.setString(3, role);
-        stmt.setString(4, senha);
+        stmt.setLong(4, senha.hashCode());
         stmt.setString(5, email);
         stmt.setString(6, telefone);
         stmt.setString(7, cep);
@@ -112,11 +122,11 @@ public class User {
         con.close();
     }
 
-    public static void changePassword(String login, String password) throws Exception {
+    public static void changePassword(String login, String senha) throws Exception {
         Connection con = DbListener.getConnection();
-        String sql = "UPDATE users SET password_hash = ? WHERE login = ?";
+        String sql = "UPDATE users SET senha = ? WHERE login = ?";
         PreparedStatement stmt = con.prepareStatement(sql);
-        stmt.setLong(1, password.hashCode());
+        stmt.setLong(1, senha.hashCode());
         stmt.setString(2, login);
         stmt.execute();
         stmt.close();
@@ -167,14 +177,6 @@ public String getRole() {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
     }
 
     public String getEmail() {
