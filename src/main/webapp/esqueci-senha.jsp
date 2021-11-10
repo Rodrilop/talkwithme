@@ -10,14 +10,16 @@
 <!DOCTYPE html>
 <%
     String requestError = null;
-    ArrayList<User> users = new ArrayList<>();
     try {
-        if (request.getParameter("redefinirSenha") != null) {
+        if (request.getParameter("esqueciSenha") != null) {
             String email = request.getParameter("email");
-            User.esqueciSenha(email);
-            response.sendRedirect("login.jsp");
+             if (User.getUsers() == null) {
+                requestError = "Email não cadastrado";
+            } else {
+                User.esqueciSenha(email);
+                response.sendRedirect("nova-senha.jsp");
+            }
         }
- //        users = User.getUsers();
     } catch (Exception ex) {
         requestError = ex.getMessage();
     }
@@ -40,6 +42,9 @@
             <div id="login-container">
                 <form method="post">
                     <h1>Esqueci Senha</h1> 
+                <%if (requestError != null) {%>
+                <div style="color: red"><%= requestError%></div>
+                <%}%>
                     <p> 
                         <label for="login">Email</label>
                         <input type="text" name="user.email" required="required" placeholder="Digite seu email" autocomplete="off" /> 

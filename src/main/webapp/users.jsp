@@ -48,16 +48,14 @@
        <%} else if (request.getParameter("preparedelete") != null) {%>
 
         <fieldset>
-            <legend>Remover Produto</legend>
+            <legend>Remover Usuário</legend>
             <form method="post">
-                <div id="login-container">
+                <div align="center" class="container col-2">
                 Remover o registro <%= request.getParameter("login")%>?
                 <input type="hidden" name="login" value="<%= request.getParameter("login")%>"/>
-                <div class="container col-4 btn-group">
-                <input type="submit" name="delete" value="Remover"/>
+                  <input type="submit" name="delete" value="Remover"/>
                 &nbsp;&nbsp;&nbsp;
                 <input type="submit" name="cancel" value="Cancelar"/>
-                </div>
                 </div>
             </form>
                  <%} else {%>      

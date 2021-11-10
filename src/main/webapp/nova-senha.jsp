@@ -1,5 +1,5 @@
 <%-- 
-    Document   : alterar-senha
+    Document   : nova-senha
     Created on : 12 de jun. de 2021, 19:49:36
     Author     : RodrigoLopes
 --%>
@@ -11,17 +11,14 @@
 <%
     String requestError = null;
     try {
-        if (request.getParameter("changePassword") != null) {
-            String login = (String) session.getAttribute("user.login");
-            String senha = request.getParameter("senha");
+        if (request.getParameter("novaSenha") != null) {
+            String email = request.getParameter("email");
             String novaSenha1 = request.getParameter("novaSenha1");
             String novaSenha2 = request.getParameter("novaSenha2");
-            if (User.getUser(login, senha) == null) {
-                requestError = "Senha inválida";
-            } else if (!novaSenha1.equals(novaSenha2)) {
+            if (!novaSenha1.equals(novaSenha2)) {
                 requestError = "Confirmação de nova senha inválida";
             } else {
-                User.changePassword(login, novaSenha1);
+                User.novaSenha(email, novaSenha1);
                 response.sendRedirect("users.jsp");
             }
         }
@@ -44,25 +41,12 @@
     <body>
         <%@include file="META-INF/jspf/header.jspf" %>
         <div id="login-container">
-        <h2>Alterar Senha</h2>
-
-        <%if (session.getAttribute("user.login") == null) {%>
-        <div>Página restrita a usuários logados</div>
-        <%} else {%>
-
-        <h4>Nome</h4>
-        <div><%= session.getAttribute("user.name")%></div>
-        <br/>
+        <h2>Esqueci Senha</h2>
         <fieldset>
             <form method="post">
                 <%if (requestError != null) {%>
                 <div style="color: red"><%= requestError%></div>
                 <%}%>
-
-               <p> 
-                    <label for="senha">Senha</label>
-                    <input type="password" name="senha" placeholder="Digite sua senha"/>
-               </p>
                <p> 
                     <label for="senha">Nova Senha</label>
                     <input type="password" name="novaSenha1" placeholder="Digite nova senha"/>
@@ -71,7 +55,7 @@
                     <label for="senha">Confirmação da nova senha:</label>
                     <input type="password" name="novaSenha2" placeholder="Confirme sua nova senha"/>
                </p>
-                <input type="submit" name="changePassword" value="Alterar senha"/>
+                <input type="submit" name="novaSenha" value="Alterar senha"/>
             </form>
         </fieldset>
         <%}%>

@@ -109,7 +109,7 @@
                 <div class="container col-4">
                 Remover o registro <%= request.getParameter("id_produto")%>?
                 <input type="hidden" name="id_produto" value="<%= request.getParameter("id_produto")%>"/>
-                <div class="container col-4 btn-group">
+                <div class="container col-4">
                 <input type="submit" name="delete" value="Remover"/>
                 &nbsp;&nbsp;&nbsp;
                 <input type="submit" name="cancel" value="Cancelar"/>

@@ -104,11 +104,12 @@
         <fieldset>
             <legend>Remover Serviço</legend>
             <form method="post">
-                <div class="container col-2">
+                <div class="container col-4">
                 Remover o registro <%= request.getParameter("id_servico")%>?
                 <input type="hidden" name="id_servico" value="<%= request.getParameter("id_servico")%>"/>
                 <div class="container col-4">
                 <input type="submit" name="delete" value="Remover"/>
+                &nbsp;&nbsp;&nbsp;
                 <input type="submit" name="cancel" value="Cancelar"/>
                 </div>
                 </div>

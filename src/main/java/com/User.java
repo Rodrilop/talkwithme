@@ -48,7 +48,6 @@ public class User {
             String cidade = rs.getString("cidade");
             String estado = rs.getString("estado");
             String tipo_cliente = rs.getString("tipo_cliente");
-            
             list.add(new User(login, name, role, email, telefone, cep, rua, numero, complemento, bairro, cidade, estado, tipo_cliente));
         }
         rs.close();
@@ -76,16 +75,25 @@ public class User {
         return user;
     }
     
-     public static User esqueciSenha(String email) throws Exception {
-        User user = null;
+     public static void esqueciSenha(String email) throws Exception {
         Connection con = DbListener.getConnection();
-        String sql = "SELECT * from users WHERE login=? AND email=?";
+        String sql = "SELECT * from users WHERE email=?";
         PreparedStatement stmt = con.prepareStatement(sql);
         stmt.setString(1, email);
         stmt.close();
         con.close();
-        return user;
-    }   
+     }
+     
+    public static void novaSenha(String email, String senha) throws Exception {
+        Connection con = DbListener.getConnection();
+        String sql = "UPDATE users SET senha = ? WHERE email = ?";
+        PreparedStatement stmt = con.prepareStatement(sql);
+        stmt.setLong(1, senha.hashCode());
+        stmt.setString(2, email);
+        stmt.execute();
+        stmt.close();
+        con.close();
+    }
 
     public static void insertUser(String login, String name, String role, String senha, String email, String telefone, String cep, String rua, String numero, String complemento, String bairro, String cidade, String estado, String tipo_cliente) throws Exception {
         Connection con = DbListener.getConnection();

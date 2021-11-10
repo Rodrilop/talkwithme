@@ -2,23 +2,19 @@
 <%@page import="com.DbListener"%>
 <%@page pageEncoding="UTF-8" %>
 <%
-    String headerError = null;
-    if (request.getParameter("session.login") != null) {
+     if (request.getParameter("session.login") != null) {
         String login = request.getParameter("user.login");
         String senha = request.getParameter("user.senha");
         try {
             User user = User.getUser(login, senha);
             if (user == null) {
-                headerError = "Usuário / senha não encontrado";
-            } else {
                 session.setAttribute("user.login", user.getLogin());
                 session.setAttribute("user.name", user.getName());
                 session.setAttribute("user.role", user.getRole());
                 response.sendRedirect("index.jsp");
             }
         } catch (Exception ex) {
-            headerError = ex.getMessage();
-        }
+            }
     } else if (request.getParameter("session.logout") != null) {
         session.removeAttribute("user.login");
         session.removeAttribute("user.name");
@@ -26,10 +22,6 @@
         response.sendRedirect("index.jsp");
     }
 %>
-<%if (headerError != null) {%>
-<div style="color: red"><%= headerError%></div>
-<hr/>
-<%}%>
 <%if (session.getAttribute("user.login") == null) {%>
 <form method="post">
     <header class="nav-menu">
@@ -78,10 +70,9 @@
                 </ul>
             </div>
             <ul class="navbar-nav mr-auto">
-                <li><a class="nav-link" href="users.jsp">Bem vindo, <b><%= session.getAttribute("user.name")%></b>
-                <li class="nav-item">
-                    <a class="nav-link" href="alterar-senha.jsp" >Alterar Senha</a></li>   
-                <input class="container col-5" type="submit" name="session.logout" value="Sair"/></li>
+                <li class="nav-item active"><a class="nav-link" href="users.jsp">Bem vindo, <b><%= session.getAttribute("user.name")%></b>
+                <a align="center" class="nav-link" href="alterar-senha.jsp" >Alterar Senha</a>   
+                <input class="container col-8" type="submit" name="session.logout" value="Sair"/></li>
             </ul>
             <%}%>
         </nav>

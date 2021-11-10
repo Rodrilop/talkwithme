@@ -30,7 +30,7 @@
             String estado = request.getParameter("UF");
             String tipo_cliente = request.getParameter("tipo_cliente");
             User.insertUser(login, name, role, senha, email, telefone, cep, rua, numero, complemento, bairro, cidade, estado, tipo_cliente);
-            response.sendRedirect(request.getRequestURI());
+            response.sendRedirect("index.jsp");
         } else if (request.getParameter("delete") != null) {
             String login = request.getParameter("login");
             User.deleteUser(login);

@@ -4,8 +4,30 @@
     Author     : Rodrigo
 --%>
 
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%
+    String requestError = null;
+    if (request.getParameter("session.login") != null) {
+        String login = request.getParameter("user.login");
+        String senha = request.getParameter("user.senha");
+        try {
+            User user = User.getUser(login, senha);
+            if (user == null) {
+                requestError = "Usuário e/ou senha não encontrado";
+            } else {
+                session.setAttribute("user.login", user.getLogin());
+                session.setAttribute("user.name", user.getName());
+                session.setAttribute("user.role", user.getRole());
+                response.sendRedirect("index.jsp");
+            }
+        } catch (Exception ex) {
+            requestError = ex.getMessage();
+        }
+    }
+%>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -23,6 +45,9 @@
             <div id="login-container">
                 <form method="post" action=""> 
                     <h1>Login</h1> 
+                <%if (requestError != null) {%>
+                <div style="color: red"><%= requestError%></div>
+                <%}%>
                     <p> 
                         <label for="login">Login</label>
                         <input type="text" name="user.login" required="required" placeholder="Digite seu login" autocomplete="off" /> 
