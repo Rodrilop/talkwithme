@@ -47,7 +47,7 @@
                 <%}%>
                     <p> 
                         <label for="login">Email</label>
-                        <input type="text" name="user.email" required="required" placeholder="Digite seu email" autocomplete="off" /> 
+                        <input type="text" name="user.email" required="required" placeholder="Informe seu email" autocomplete="off" /> 
                     </p>
                     <input type="submit" name="redefinirSenha" value="Enviar"/>
                 </form>

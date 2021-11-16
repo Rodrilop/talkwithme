@@ -184,7 +184,13 @@
                         "info": "Mostrando página _PAGE_ de _PAGES_",
                         "infoEmpty": "Nenhum registro encontrado",
                         "infoFiltered": "(filtrando de  _MAX_ registros no total)",
-                        "search":"Procurar"
+                        "search":"Procurar",
+                        "paginate": {
+                            "next": "Próximo",
+                            "previous": "Anterior",
+                            "first": "Primeiro",
+                            "last": "Último"
+                        }
                     }
                 });
             });

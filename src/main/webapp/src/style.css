@@ -110,3 +110,27 @@ input[type="submit"]:hover {
   background-color: #3c3078;
   transition: .5s;
 }
+
+.page-item.active.page-link {
+  color: #00a2a7!important;
+  background-color: #3c3078 !important;
+  border-color: #3c3078!important;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-radius: 20px;
+}
+
+.page-link {
+  color: #FFF !important;
+  background-color: #00a2a7!important;
+  border: 1px solid #dee2e6!important;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-radius: 20px;
+}
+
+.page-link:hover {
+  color: #FFF !important;
+  background-color: #3c3078 !important;
+  transition: .5s;
+}

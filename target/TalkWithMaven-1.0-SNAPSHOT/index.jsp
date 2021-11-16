@@ -29,6 +29,5 @@
         </br>
         <h5 class="Subtitle" align="center">Criar uma via de comunicação entre entregadores/prestadores de serviços </h5>
         <h5 class="Subtitle" align="center"> com seus clientes, possibilitando a notificação de que o produto ou serviço está a caminho, de maneira simples e ágil.</h5>
-
     </body>
 </html>

@@ -12,7 +12,10 @@
     String requestError = null;
     ArrayList<User> users = new ArrayList<>();
     try {
-        if (request.getParameter("delete") != null) {
+            if (request.getParameter("insert") != null) {
+            response.sendRedirect("cadastro.jsp");
+    
+    } else if (request.getParameter("delete") != null) {
             String login = request.getParameter("login");
             User.deleteUser(login);
             response.sendRedirect(request.getRequestURI());
@@ -61,6 +64,9 @@
                  <%} else {%>      
         </fieldset>
         <hr/>
+            <div class="container col-2">
+                <input type="submit"  name="insert" value="Cadastrar"/>
+        </div>
         <div class="container">
         <div class="row">
         <div class="table-responsive">
@@ -131,7 +137,13 @@
                         "info": "Mostrando página _PAGE_ de _PAGES_",
                         "infoEmpty": "Nenhum registro encontrado",
                         "infoFiltered": "(filtrando de  _MAX_ registros no total)",
-                        "search":"Procurar"
+                        "search":"Procurar",
+                        "paginate": {
+                            "next": "Próximo",
+                            "previous": "Anterior",
+                            "first": "Primeiro",
+                            "last": "Último"
+                        }
                     }
                 });
             });

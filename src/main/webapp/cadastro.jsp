@@ -175,7 +175,7 @@
                             <label for="cliente" class="radio-button"><input type="radio"  value="cliente" id="cliente" name="tipo_cliente"> Cliente</label>
                             <label for="prestador" class="radio-button"><input type="radio" value="prestador" id="prestado" name="tipo_cliente"> Prestador</label>
                         </p>
-                        <p >
+                        <p>
                             <input type="submit" value="Cadastrar" name="insert"/>
                         </p>
                     </div>
